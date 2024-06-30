@@ -1,21 +1,36 @@
 package com.cultural.demo.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
+@Entity
 public class Analise {
-    private Long id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @ManyToOne
     private Filme filme;
     private String analise;
 
-    public Analise(Long id, Filme filme, String analise) {
+    public Analise() {
+
+    }
+
+    public Analise(int id, Filme filme, String analise) {
         this.id = id;
         this.filme = filme;
         this.analise = analise;
     }
 
-    public Long getId() {
+    public int getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
